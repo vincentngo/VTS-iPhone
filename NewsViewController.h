@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsParsing.h"
 
-@interface NewsViewController : UIViewController
+@interface NewsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) NewsParsing *newsParser;
+
+
 
 @end

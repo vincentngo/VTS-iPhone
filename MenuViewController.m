@@ -31,7 +31,7 @@
     [super viewDidLoad];
 
     
-    self.menu = [NSArray arrayWithObjects:@"News",@"Chatter", nil]; 
+    self.menu = [NSArray arrayWithObjects:@"News", @"Chatter", @"User Blogs", @"Events", @"Map", @"Likes", @"Following", nil];
     [self.slidingViewController setAnchorRightRevealAmount:200.0f];
     self.slidingViewController.underLeftWidthLayout = ECFullWidth;
     

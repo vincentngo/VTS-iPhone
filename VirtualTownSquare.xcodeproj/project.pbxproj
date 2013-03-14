@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1030732D16F1366000C5569D /* hokieSnakeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1030732C16F1366000C5569D /* hokieSnakeIcon.png */; };
+		1030733016F13BD000C5569D /* NewsParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 1030732F16F13BD000C5569D /* NewsParsing.m */; };
+		1030733316F164CD00C5569D /* NewsArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1030733216F164CD00C5569D /* NewsArticle.m */; };
+		1030733616F1655700C5569D /* QuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1030733516F1655600C5569D /* QuadTree.m */; };
 		1079C50B16EEB04300ECE894 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1079C50A16EEB04300ECE894 /* UIKit.framework */; };
 		1079C50D16EEB04300ECE894 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1079C50C16EEB04300ECE894 /* Foundation.framework */; };
 		1079C50F16EEB04300ECE894 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1079C50E16EEB04300ECE894 /* CoreGraphics.framework */; };
@@ -17,7 +21,6 @@
 		1079C51F16EEB04300ECE894 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1079C51E16EEB04300ECE894 /* Default@2x.png */; };
 		1079C52116EEB04300ECE894 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1079C52016EEB04300ECE894 /* Default-568h@2x.png */; };
 		1079C52416EEB04300ECE894 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1079C52216EEB04300ECE894 /* MainStoryboard.storyboard */; };
-		1079C52716EEB04300ECE894 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1079C52616EEB04300ECE894 /* ViewController.m */; };
 		1079C53216EEB7AC00ECE894 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1079C52F16EEB7AC00ECE894 /* ECSlidingViewController.m */; };
 		1079C53316EEB7AC00ECE894 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1079C53116EEB7AC00ECE894 /* UIImage+ImageWithUIView.m */; };
 		1079C53616EEC3DC00ECE894 /* InitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1079C53516EEC3DC00ECE894 /* InitViewController.m */; };
@@ -27,6 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1030732C16F1366000C5569D /* hokieSnakeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hokieSnakeIcon.png; sourceTree = "<group>"; };
+		1030732E16F13BD000C5569D /* NewsParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsParsing.h; path = ../NewsParsing.h; sourceTree = "<group>"; };
+		1030732F16F13BD000C5569D /* NewsParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsParsing.m; path = ../NewsParsing.m; sourceTree = "<group>"; };
+		1030733116F164CD00C5569D /* NewsArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsArticle.h; sourceTree = "<group>"; };
+		1030733216F164CD00C5569D /* NewsArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsArticle.m; sourceTree = "<group>"; };
+		1030733416F1655600C5569D /* QuadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadTree.h; sourceTree = "<group>"; };
+		1030733516F1655600C5569D /* QuadTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadTree.m; sourceTree = "<group>"; };
 		1079C50716EEB04300ECE894 /* VirtualTownSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualTownSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1079C50A16EEB04300ECE894 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1079C50C16EEB04300ECE894 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -41,8 +51,6 @@
 		1079C51E16EEB04300ECE894 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		1079C52016EEB04300ECE894 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1079C52316EEB04300ECE894 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		1079C52516EEB04300ECE894 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1079C52616EEB04300ECE894 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1079C52E16EEB7AC00ECE894 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
 		1079C52F16EEB7AC00ECE894 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
 		1079C53016EEB7AC00ECE894 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
@@ -51,10 +59,10 @@
 		1079C53516EEC3DC00ECE894 /* InitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitViewController.m; sourceTree = "<group>"; };
 		1079C53716EEC40400ECE894 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = ../MenuViewController.h; sourceTree = "<group>"; };
 		1079C53816EEC40400ECE894 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = ../MenuViewController.m; sourceTree = "<group>"; };
-		1079C53A16EEC44500ECE894 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
-		1079C53B16EEC44500ECE894 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
-		1079C53D16EEC49800ECE894 /* ChatterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatterViewController.h; sourceTree = "<group>"; };
-		1079C53E16EEC49800ECE894 /* ChatterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatterViewController.m; sourceTree = "<group>"; };
+		1079C53A16EEC44500ECE894 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsViewController.h; path = ../NewsViewController.h; sourceTree = "<group>"; };
+		1079C53B16EEC44500ECE894 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsViewController.m; path = ../NewsViewController.m; sourceTree = "<group>"; };
+		1079C53D16EEC49800ECE894 /* ChatterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatterViewController.h; path = ../ChatterViewController.h; sourceTree = "<group>"; };
+		1079C53E16EEC49800ECE894 /* ChatterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatterViewController.m; path = ../ChatterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,13 +79,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1079C4FE16EEB04300ECE894 = {
+		1030733716F1656300C5569D /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				1030733416F1655600C5569D /* QuadTree.h */,
+				1030733516F1655600C5569D /* QuadTree.m */,
+			);
+			name = "Data Structures";
+			sourceTree = "<group>";
+		};
+		1030733816F165A500C5569D /* Sliding Menu Setup */ = {
+			isa = PBXGroup;
+			children = (
+				1079C53716EEC40400ECE894 /* MenuViewController.h */,
+				1079C53816EEC40400ECE894 /* MenuViewController.m */,
+				1079C53416EEC3DB00ECE894 /* InitViewController.h */,
+				1079C53516EEC3DC00ECE894 /* InitViewController.m */,
+			);
+			name = "Sliding Menu Setup";
+			sourceTree = "<group>";
+		};
+		1030733916F165CE00C5569D /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				1030733116F164CD00C5569D /* NewsArticle.h */,
+				1030733216F164CD00C5569D /* NewsArticle.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		1030733A16F165DA00C5569D /* Parsing JSON Data Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1030732E16F13BD000C5569D /* NewsParsing.h */,
+				1030732F16F13BD000C5569D /* NewsParsing.m */,
+			);
+			name = "Parsing JSON Data Classes";
+			sourceTree = "<group>";
+		};
+		1030733B16F165F000C5569D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				1079C53D16EEC49800ECE894 /* ChatterViewController.h */,
 				1079C53E16EEC49800ECE894 /* ChatterViewController.m */,
 				1079C53A16EEC44500ECE894 /* NewsViewController.h */,
 				1079C53B16EEC44500ECE894 /* NewsViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1079C4FE16EEB04300ECE894 = {
+			isa = PBXGroup;
+			children = (
+				1030732C16F1366000C5569D /* hokieSnakeIcon.png */,
 				1079C51016EEB04300ECE894 /* VirtualTownSquare */,
 				1079C50916EEB04300ECE894 /* Frameworks */,
 				1079C50816EEB04300ECE894 /* Products */,
@@ -105,16 +159,15 @@
 		1079C51016EEB04300ECE894 /* VirtualTownSquare */ = {
 			isa = PBXGroup;
 			children = (
+				1030733B16F165F000C5569D /* View Controllers */,
+				1030733A16F165DA00C5569D /* Parsing JSON Data Classes */,
+				1030733916F165CE00C5569D /* Objects */,
+				1030733816F165A500C5569D /* Sliding Menu Setup */,
+				1030733716F1656300C5569D /* Data Structures */,
 				1079C52D16EEB7AC00ECE894 /* ECSlidingViewController */,
 				1079C51916EEB04300ECE894 /* AppDelegate.h */,
 				1079C51A16EEB04300ECE894 /* AppDelegate.m */,
 				1079C52216EEB04300ECE894 /* MainStoryboard.storyboard */,
-				1079C52516EEB04300ECE894 /* ViewController.h */,
-				1079C52616EEB04300ECE894 /* ViewController.m */,
-				1079C53716EEC40400ECE894 /* MenuViewController.h */,
-				1079C53816EEC40400ECE894 /* MenuViewController.m */,
-				1079C53416EEC3DB00ECE894 /* InitViewController.h */,
-				1079C53516EEC3DC00ECE894 /* InitViewController.m */,
 				1079C51116EEB04300ECE894 /* Supporting Files */,
 			);
 			path = VirtualTownSquare;
@@ -201,6 +254,7 @@
 				1079C51F16EEB04300ECE894 /* Default@2x.png in Resources */,
 				1079C52116EEB04300ECE894 /* Default-568h@2x.png in Resources */,
 				1079C52416EEB04300ECE894 /* MainStoryboard.storyboard in Resources */,
+				1030732D16F1366000C5569D /* hokieSnakeIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,13 +267,15 @@
 			files = (
 				1079C51716EEB04300ECE894 /* main.m in Sources */,
 				1079C51B16EEB04300ECE894 /* AppDelegate.m in Sources */,
-				1079C52716EEB04300ECE894 /* ViewController.m in Sources */,
 				1079C53216EEB7AC00ECE894 /* ECSlidingViewController.m in Sources */,
 				1079C53316EEB7AC00ECE894 /* UIImage+ImageWithUIView.m in Sources */,
 				1079C53616EEC3DC00ECE894 /* InitViewController.m in Sources */,
 				1079C53916EEC40400ECE894 /* MenuViewController.m in Sources */,
 				1079C53C16EEC44500ECE894 /* NewsViewController.m in Sources */,
 				1079C53F16EEC49800ECE894 /* ChatterViewController.m in Sources */,
+				1030733016F13BD000C5569D /* NewsParsing.m in Sources */,
+				1030733316F164CD00C5569D /* NewsArticle.m in Sources */,
+				1030733616F1655700C5569D /* QuadTree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +398,7 @@
 				1079C52C16EEB04300ECE894 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
