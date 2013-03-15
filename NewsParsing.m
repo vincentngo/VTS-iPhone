@@ -118,30 +118,18 @@
 
 
         NewsArticle *anArticle = [[NewsArticle alloc]initTitle:theTitle theDescription:theDescriptionHtml theimageURL: theFullImageUrl theOriginalSource:theOriginalArticleSource ];//] theimageData:image];
+        
+        
         [self.listOfNewsArticles addObject:anArticle];
 
         
         NSLog(@"the full image url %@", theFullImageUrl);
-        
-        //Create a new news article 
-       // NewsArticle *anArticle = [[NewsArticle alloc]initTitle:theTitle theDescription:theDescriptionHtml theimageURL: theFullImageUrl theOriginalSource:theOriginalArticleSource theimageData:image];
-        
        
-        
     }
     
 
     
     return self.listOfNewsArticles;
-    //Done for tonight...
-    //Questions to answer for tomorrow:
-    // Removing the html tags in the description
-    //Are you storing each of these fields in the news article object?
-    
-
-
-    
-
 
     
     

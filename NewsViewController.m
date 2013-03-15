@@ -12,10 +12,12 @@
 #import "NewsCustomCell.h"
 #import "NewsArticle.h"
 
+#import <SDWebImage/UIImageView+WebCache.h>
+
 #import "asyncimageview.h"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) 
 
-#define kNEWSJsonURL [NSURL URLWithString: @"http://vts.cs.vt.edu/search.json?type=2&page=2"] 
+#define kNEWSJsonURL [NSURL URLWithString: @"http://vts.cs.vt.edu/search.json?type=2&page=3"] 
 
 @interface NewsViewController ()
 
@@ -43,12 +45,16 @@
         //Grab the data from this url.
         NSData* data = [NSData dataWithContentsOfURL:
                         kNEWSJsonURL];
-        
+    
+    
         self.listofNewsArticles = [self.newsParser fetchedData:data];
 
     
     NSLog(@"size of news article is : %d", self.listofNewsArticles.count);
 
+    
+    [SDWebImageManager.sharedManager.imageDownloader setValue:@"VTS Downloader" forHTTPHeaderField:@"VTS App"];
+    SDWebImageManager.sharedManager.imageDownloader.queueMode = SDWebImageDownloaderLIFOQueueMode;
 
 
 
@@ -101,7 +107,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NewsCustomCell *cell = (NewsCustomCell *)[tableView dequeueReusableCellWithIdentifier:@"NewsContent"];
     
     //Gets the current news article
     NewsArticle *theCurrentArticle = [self.listofNewsArticles objectAtIndex:[indexPath row]];
@@ -115,32 +121,27 @@
     //Gets the description of the current news article
     NSString *theDescription = theCurrentArticle.description;
     
-    
-    NewsCustomCell *cell = (NewsCustomCell *)[tableView dequeueReusableCellWithIdentifier:@"NewsContent"];
-    
-    if (cell == nil) {
-        cell = (NewsCustomCell *)[tableView dequeueReusableCellWithIdentifier:@"NewsContent"];
-    } else {
-        AsyncImageView* oldImage = (AsyncImageView*)[cell.contentView viewWithTag:999];
-        [oldImage removeFromSuperview];
-    }
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
 
-    
-    
-    AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(5, 5, 100, 100)];
-    imageView.tag = 999;
+    [cell.imageLabel setImageWithURL:[NSURL URLWithString:imageUrl]
+                   placeholderImage:[UIImage imageNamed:@"placeholder"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
 
-    [imageView loadImageFromURL:[NSURL URLWithString:imageUrl]];
-    [cell.contentView addSubview:imageView];
-              
               cell.titleLabel.text = theTitle;
               cell.descriptionLabel.text = theDescription;
               cell.imageLabel.contentMode = UIViewContentModeScaleAspectFill;
+    cell.imageLabel.clipsToBounds = YES;
+            
 
     return cell;
     
 
    
+}
+
+- (void)flushCache
+{
+    [SDWebImageManager.sharedManager.imageCache clearMemory];
+    [SDWebImageManager.sharedManager.imageCache clearDisk];
 }
 
 

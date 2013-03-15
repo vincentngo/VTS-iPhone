@@ -30,6 +30,10 @@
 		1079C53916EEC40400ECE894 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1079C53816EEC40400ECE894 /* MenuViewController.m */; };
 		1079C53C16EEC44500ECE894 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1079C53B16EEC44500ECE894 /* NewsViewController.m */; };
 		1079C53F16EEC49800ECE894 /* ChatterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1079C53E16EEC49800ECE894 /* ChatterViewController.m */; };
+		108DF12316F308DC001DCAC4 /* ImageCacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 108DF12216F308DC001DCAC4 /* ImageCacheObject.m */; };
+		108DF12616F30A85001DCAC4 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 108DF12516F30A85001DCAC4 /* ImageCache.m */; };
+		108DF12916F36E35001DCAC4 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 108DF12816F36E35001DCAC4 /* SDWebImage.framework */; };
+		108DF12B16F36FD0001DCAC4 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 108DF12A16F36FD0001DCAC4 /* ImageIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +74,12 @@
 		1079C53B16EEC44500ECE894 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsViewController.m; path = ../NewsViewController.m; sourceTree = "<group>"; };
 		1079C53D16EEC49800ECE894 /* ChatterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatterViewController.h; path = ../ChatterViewController.h; sourceTree = "<group>"; };
 		1079C53E16EEC49800ECE894 /* ChatterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatterViewController.m; path = ../ChatterViewController.m; sourceTree = "<group>"; };
+		108DF12116F308DC001DCAC4 /* ImageCacheObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCacheObject.h; sourceTree = "<group>"; };
+		108DF12216F308DC001DCAC4 /* ImageCacheObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCacheObject.m; sourceTree = "<group>"; };
+		108DF12416F30A85001DCAC4 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
+		108DF12516F30A85001DCAC4 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
+		108DF12816F36E35001DCAC4 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
+		108DF12A16F36FD0001DCAC4 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +87,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				108DF12B16F36FD0001DCAC4 /* ImageIO.framework in Frameworks */,
 				1079C50B16EEB04300ECE894 /* UIKit.framework in Frameworks */,
 				1079C50D16EEB04300ECE894 /* Foundation.framework in Frameworks */,
 				1079C50F16EEB04300ECE894 /* CoreGraphics.framework in Frameworks */,
+				108DF12916F36E35001DCAC4 /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,8 +121,6 @@
 		1030733916F165CE00C5569D /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				102F3BCF16F2BE5E0089BD0B /* asyncimageview.m */,
-				102F3BD016F2BE5E0089BD0B /* asyncimageview.h */,
 				1030733116F164CD00C5569D /* NewsArticle.h */,
 				1030733216F164CD00C5569D /* NewsArticle.m */,
 			);
@@ -167,6 +177,8 @@
 		1079C50916EEB04300ECE894 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				108DF12A16F36FD0001DCAC4 /* ImageIO.framework */,
+				108DF12816F36E35001DCAC4 /* SDWebImage.framework */,
 				1079C50A16EEB04300ECE894 /* UIKit.framework */,
 				1079C50C16EEB04300ECE894 /* Foundation.framework */,
 				1079C50E16EEB04300ECE894 /* CoreGraphics.framework */,
@@ -177,6 +189,7 @@
 		1079C51016EEB04300ECE894 /* VirtualTownSquare */ = {
 			isa = PBXGroup;
 			children = (
+				108DF12C16F3744E001DCAC4 /* Classes from helpful people */,
 				1030733C16F247AC00C5569D /* Custom Cells */,
 				1030733B16F165F000C5569D /* View Controllers */,
 				1030733A16F165DA00C5569D /* Parsing JSON Data Classes */,
@@ -215,6 +228,19 @@
 				1079C53116EEB7AC00ECE894 /* UIImage+ImageWithUIView.m */,
 			);
 			path = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
+		108DF12C16F3744E001DCAC4 /* Classes from helpful people */ = {
+			isa = PBXGroup;
+			children = (
+				102F3BCF16F2BE5E0089BD0B /* asyncimageview.m */,
+				102F3BD016F2BE5E0089BD0B /* asyncimageview.h */,
+				108DF12116F308DC001DCAC4 /* ImageCacheObject.h */,
+				108DF12216F308DC001DCAC4 /* ImageCacheObject.m */,
+				108DF12416F30A85001DCAC4 /* ImageCache.h */,
+				108DF12516F30A85001DCAC4 /* ImageCache.m */,
+			);
+			name = "Classes from helpful people";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +324,8 @@
 				1030733316F164CD00C5569D /* NewsArticle.m in Sources */,
 				1030733616F1655700C5569D /* QuadTree.m in Sources */,
 				1030733F16F247BE00C5569D /* NewsCustomCell.m in Sources */,
+				108DF12316F308DC001DCAC4 /* ImageCacheObject.m in Sources */,
+				108DF12616F30A85001DCAC4 /* ImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,9 +410,14 @@
 		1079C52B16EEB04300ECE894 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VirtualTownSquare/VirtualTownSquare-Prefix.pch";
 				INFOPLIST_FILE = "VirtualTownSquare/VirtualTownSquare-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -393,9 +426,14 @@
 		1079C52C16EEB04300ECE894 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VirtualTownSquare/VirtualTownSquare-Prefix.pch";
 				INFOPLIST_FILE = "VirtualTownSquare/VirtualTownSquare-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
