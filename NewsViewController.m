@@ -118,15 +118,10 @@
     
     NewsCustomCell *cell = (NewsCustomCell *)[tableView dequeueReusableCellWithIdentifier:@"NewsContent"];
     
-    __block NewsCustomCell *aCell;
-    
-     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            
     if (cell == nil) {
-        aCell = (NewsCustomCell *)[tableView dequeueReusableCellWithIdentifier:@"NewsContent"];
+        cell = (NewsCustomCell *)[tableView dequeueReusableCellWithIdentifier:@"NewsContent"];
     } else {
-        AsyncImageView* oldImage = (AsyncImageView*)
-        [cell.contentView viewWithTag:999];
+        AsyncImageView* oldImage = (AsyncImageView*)[cell.contentView viewWithTag:999];
         [oldImage removeFromSuperview];
     }
 
@@ -134,8 +129,7 @@
     
     AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(5, 5, 100, 100)];
     imageView.tag = 999;
-         
-          dispatch_async(dispatch_get_main_queue(), ^{
+
     [imageView loadImageFromURL:[NSURL URLWithString:imageUrl]];
     [cell.contentView addSubview:imageView];
               
@@ -143,12 +137,6 @@
               cell.descriptionLabel.text = theDescription;
               cell.imageLabel.contentMode = UIViewContentModeScaleAspectFill;
 
-});
-         
-         });
-    
-    
-    
     return cell;
     
 
