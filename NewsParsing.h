@@ -13,6 +13,12 @@
 @property (nonatomic, strong) NSArray *listOfNewsArticleToJSON;
 @property (nonatomic, strong) NSDictionary *oneNewsArticleToJSONData;
 
-- (void)fetchedData:(NSData *)responseData;
+//a changable array that stores news article objects
+@property (nonatomic, strong) NSMutableArray *listOfNewsArticles;
 
+@property (nonatomic, strong) NSMutableArray *imageUrls;
+
+- (NSMutableArray *)fetchedData:(NSData *)responseData;
+
+- (NSMutableArray *)fetchedImageData:(NSData *)responseData;
 @end

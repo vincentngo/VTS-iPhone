@@ -10,6 +10,7 @@
 
 
 #import "NewsParsing.h"
+#import "NewsArticle.h"
 
 @implementation NewsParsing
 
@@ -78,7 +79,7 @@
  
  */
 
-- (void)fetchedData:(NSData *)responseData {
+- (NSMutableArray *)fetchedData:(NSData *)responseData {
     //parse out the json data
     NSError* error;
     
@@ -90,31 +91,62 @@
     
     
     self.listOfNewsArticleToJSON = json;
+    self.listOfNewsArticles = [[NSMutableArray alloc]init];
     
-    self.oneNewsArticleToJSONData = [self.listOfNewsArticleToJSON objectAtIndex:0];
+    //Loop through each news article's json data, and create a new
+    //newsArticle object to store the data we extract.
+    for (int i = 0; i < self.listOfNewsArticleToJSON.count; i++){
+        
+        self.oneNewsArticleToJSONData = [self.listOfNewsArticleToJSON objectAtIndex:i];
+        
+        //Getting the different fields we want from JSON Data
+        
+        //Need to convert the date somehow...
+        NSString *theStringDateFormat = [self.oneNewsArticleToJSONData objectForKey:@"created_at"];
+        
+        
+        NSString *theTitle = [self.oneNewsArticleToJSONData objectForKey:@"title"];
+        NSString *theDescriptionHtml = [self.oneNewsArticleToJSONData objectForKey:@"description"];
+        NSString *theOriginalArticleSource = [self.oneNewsArticleToJSONData objectForKey:@"source_url"];
+        
+        NSString *theImageSrc = [self.oneNewsArticleToJSONData objectForKey:@"image_src"];
+        
+        //NSLog(@"image source %@", theImageSrc);
+        
+        NSString *theFullImageUrl = [NSString stringWithFormat:@"http://vts.cs.vt.edu%@",theImageSrc];
+        
+
+
+        NewsArticle *anArticle = [[NewsArticle alloc]initTitle:theTitle theDescription:theDescriptionHtml theimageURL: theFullImageUrl theOriginalSource:theOriginalArticleSource ];//] theimageData:image];
+        [self.listOfNewsArticles addObject:anArticle];
+
+        
+        NSLog(@"the full image url %@", theFullImageUrl);
+        
+        //Create a new news article 
+       // NewsArticle *anArticle = [[NewsArticle alloc]initTitle:theTitle theDescription:theDescriptionHtml theimageURL: theFullImageUrl theOriginalSource:theOriginalArticleSource theimageData:image];
+        
+       
+        
+    }
     
-    NSLog(@"Test data for first news article in VTS.\n");
-    NSLog(@"The date created is: %@\n", [self.oneNewsArticleToJSONData objectForKey:@"created_at"]);
-    NSLog(@"The description is: %@\n", [self.oneNewsArticleToJSONData objectForKey:@"description"]);
-    NSLog(@"The image source is: %@\n", [self.oneNewsArticleToJSONData objectForKey:@"image_src"]);
-    NSLog(@"The original article source is: %@", [self.oneNewsArticleToJSONData objectForKey:@"source_url"]);
+
     
+    return self.listOfNewsArticles;
     //Done for tonight...
     //Questions to answer for tomorrow:
     // Removing the html tags in the description
     //Are you storing each of these fields in the news article object?
     
-    
-    
-//    for (int i = 0; i < self.listOfNewsArticleToJSON.count; i++){
-//        NSLog(@"%@", [self.listOfNewsArticleToJSON objectAtIndex:i]);
-//    }
+
+
     
 
 
     
     
 }
+
 
 
 

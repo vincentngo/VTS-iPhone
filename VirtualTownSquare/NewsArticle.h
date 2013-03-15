@@ -25,6 +25,12 @@
 @property (nonatomic, strong)NSString *imageURL;
 @property (nonatomic, strong)NSString *description;
 @property (nonatomic, strong)NSString *title;
+@property (nonatomic, strong)NSString *articleSource;
+@property (nonatomic, strong)UIImage *imageData;
+
+
+- (id)initTitle: (NSString *)title theDescription:(NSString *)description theimageURL:(NSString *) imageUrl theOriginalSource:(NSString *)articleSource;// theimageData:(UIImage *)imageData;
+
 
 
 @end

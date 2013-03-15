@@ -9,10 +9,13 @@
 #import "NewsViewController.h"
 #import "ECSlidingViewController.h"
 #import "MenuViewController.h" 
+#import "NewsCustomCell.h"
+#import "NewsArticle.h"
 
+#import "asyncimageview.h"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) 
 
-#define kNEWSJsonURL [NSURL URLWithString: @"http://vts.cs.vt.edu/search.json?type=2&page=1"] 
+#define kNEWSJsonURL [NSURL URLWithString: @"http://vts.cs.vt.edu/search.json?type=2&page=2"] 
 
 @interface NewsViewController ()
 
@@ -33,23 +36,22 @@
 {
     [super viewDidLoad];
     
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
     self.newsParser = [[NewsParsing alloc]init];
-
-    //This collects all the news articles in Virtual Town Square. The job is done in the background thread so it doesn't intervene with UI
-    dispatch_async(kBgQueue, ^{
+    
         //Grab the data from this url.
         NSData* data = [NSData dataWithContentsOfURL:
                         kNEWSJsonURL];
-        //
-        //        [self performSelectorOnMainThread:@selector(fetchedData:)
-        //                           withObject:data waitUntilDone:YES];
         
-        [self.newsParser fetchedData:data];
-    });
+        self.listofNewsArticles = [self.newsParser fetchedData:data];
 
     
-    
-    
+    NSLog(@"size of news article is : %d", self.listofNewsArticles.count);
+
+
+
+
     //================ECSliding=============
     
     //Adds a shadow to give a view controller hovering over the menu.
@@ -68,6 +70,110 @@
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+}
+
+
+
+#pragma mark - Table View Data Source Methods
+
+// Asks the data source to return the number of sections in the table view
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+
+// Asks the data source to return the number of rows in a section, the number of which is given
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+  return [self.listofNewsArticles count];
+    
+}
+
+
+// Asks the data source to return a cell to insert in a particular table view location
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    //Gets the current news article
+    NewsArticle *theCurrentArticle = [self.listofNewsArticles objectAtIndex:[indexPath row]];
+    
+    //Gets the title from the current article
+    NSString *theTitle = theCurrentArticle.title;
+    
+    //Gets the image url 
+    NSString *imageUrl = theCurrentArticle.imageURL;
+    
+    //Gets the description of the current news article
+    NSString *theDescription = theCurrentArticle.description;
+    
+    
+    NewsCustomCell *cell = (NewsCustomCell *)[tableView dequeueReusableCellWithIdentifier:@"NewsContent"];
+    
+    __block NewsCustomCell *aCell;
+    
+     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+    if (cell == nil) {
+        aCell = (NewsCustomCell *)[tableView dequeueReusableCellWithIdentifier:@"NewsContent"];
+    } else {
+        AsyncImageView* oldImage = (AsyncImageView*)
+        [cell.contentView viewWithTag:999];
+        [oldImage removeFromSuperview];
+    }
+
+    
+    
+    AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(5, 5, 100, 100)];
+    imageView.tag = 999;
+         
+          dispatch_async(dispatch_get_main_queue(), ^{
+    [imageView loadImageFromURL:[NSURL URLWithString:imageUrl]];
+    [cell.contentView addSubview:imageView];
+              
+              cell.titleLabel.text = theTitle;
+              cell.descriptionLabel.text = theDescription;
+              cell.imageLabel.contentMode = UIViewContentModeScaleAspectFill;
+
+});
+         
+         });
+    
+    
+    
+    return cell;
+    
+
+   
+}
+
+
+#pragma mark - Table View Delegate Methods
+
+// Tells the delegate (=self) that the row specified under indexPath is now selected.
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    
+    
+   }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 150;
+}
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
